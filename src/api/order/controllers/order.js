@@ -15,7 +15,7 @@ module.exports = createCoreController('api::order.order', ({strapi})=>({
     const {xenditHeaders} = require('../helpers/header.js');
 
     const payload = {
-      external_id:result.data.id.toString(),
+      external_id: result.data.id.toString(),
       payer_email:'fahron@mail.com',
       description:'payment product',
       amount:result.data.attributes.totalPrice
@@ -27,9 +27,6 @@ module.exports = createCoreController('api::order.order', ({strapi})=>({
       headers:xenditHeaders,
       data:JSON.stringify(payload)
     });
-
-    console.log(xenditHeaders);
-    console.log('response',response.data);
 
     return JSON.stringify(response.data);
   }
